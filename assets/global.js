@@ -812,7 +812,6 @@ class VariantSelects extends HTMLElement {
         } else {
           validCombo = (v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) ? true : false;
         }
-        validCombo = true;
       });
       return validCombo;
   }
