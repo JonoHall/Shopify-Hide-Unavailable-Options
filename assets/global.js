@@ -806,7 +806,7 @@ class VariantSelects extends HTMLElement {
       let validCombo = new Boolean(false);
 
       productJson.map(function(v) {
-        console.log((v.option1 == selectedOptions[0] && v.option2 == inputValue));
+        console.log(validCombo);
         if(optionLevel == 1) {
           validCombo = (v.option1 == selectedOptions[0] && v.option2 == inputValue) ? true : false;
         } else {
