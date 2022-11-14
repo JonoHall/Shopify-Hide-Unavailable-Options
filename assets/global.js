@@ -780,7 +780,7 @@ class VariantSelects extends HTMLElement {
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
-            label.style.display = (this.validCombo(input.value,optionLevel,selectedOptions) === false) ?  "none" : "";
+            if(this.validCombo(input.value,optionLevel,selectedOptions) == false) label.remove();
         });
     };
 
@@ -804,15 +804,20 @@ class VariantSelects extends HTMLElement {
   validCombo(inputValue,optionLevel,selectedOptions) {
       const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
       let validCombo = new Boolean(false);
-
-      validCombo = productJson.map(function(v) {
-        if(optionLevel == 1) {
-          return (v.option1 == selectedOptions[0] && v.option2 == inputValue);
-        } else {
-          return (v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue);
-        }
-      });
-      console.log(validCombo);
+  
+      if(optionLevel == 1) {
+          productJson.map(function(v) {
+              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
+                  validCombo = true;
+              }
+          });
+      } else {
+          productJson.map(function(v) {
+              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
+                  validCombo = true;
+              }
+          });
+      }
       return validCombo;
   }
   /* *** Dynamic Selectors - 2/3 - End *** */
