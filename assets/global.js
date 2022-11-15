@@ -811,9 +811,9 @@ class VariantSelects extends HTMLElement {
       let validCombo = false;
           productJson.map(function(v) {
             if(optionLevel == 1){
-              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = true;
+              validCombo = (v.option1 == selectedOptions[0] && v.option2 == inputValue);
             } else {
-              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = true;
+              validCombo = (v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue);
             }
           });
       return validCombo;
