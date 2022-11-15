@@ -782,7 +782,7 @@ class VariantSelects extends HTMLElement {
             //label.style.display = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "none" : "";
             label.style.opacity = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "0.5" : "1";
             label.style.borderStyle = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "dashed" : "solid";
-            label.style.textDecoration = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "line-through" : "";
+            label.style.textDecoration = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "" : "line-through";
         });
     };
 
