@@ -782,15 +782,15 @@ class VariantSelects extends HTMLElement {
             if(this.validCombo(input.value,optionLevel,selectedOptions) == false){
               input.disabled = true;
               
-              //label.style.display = "none";
-              label.style.opacity = "0.5";
-              label.style.borderStyle = "dashed";
+              label.style.display = "none";
+              //label.style.opacity = "0.5";
+              //label.style.borderStyle = "dashed";
             } else {
               input.disabled = false;
               
-              //label.style.display = "";
-              label.style.opacity = "1";
-              label.style.borderStyle = "solid";
+              label.style.display = "";
+              //label.style.opacity = "1";
+              //label.style.borderStyle = "solid";
             }
         });
     };
