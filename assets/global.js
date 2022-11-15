@@ -767,6 +767,8 @@ class VariantSelects extends HTMLElement {
   rebuildOptions() {
     //get the option sets (option1, option2 etc)
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
+    const options = this.options;
+    console.log(options);
 
     //build an array of currently selected options
     const selectedOptions = [];
