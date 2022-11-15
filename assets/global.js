@@ -783,7 +783,7 @@ class VariantSelects extends HTMLElement {
 
             if(input.disabled){
               //label.style.display = "none";
-              label.style.opacity = "0.5";
+              label.style.opacity = "0.3";
               label.style.borderStyle = "dashed";
               label.style.textDecoration = "none";
             } else {              
