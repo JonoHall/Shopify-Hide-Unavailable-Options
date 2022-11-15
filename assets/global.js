@@ -775,6 +775,12 @@ class VariantSelects extends HTMLElement {
     });
     console.log(selectedOptions);
     console.log(Array.from(this.querySelectorAll('select'), (select) => select.value));
+    console.log(
+      const fieldsets = Array.from(this.querySelectorAll('fieldset'));
+      this.options = fieldsets.map((fieldset) => {
+        return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
+      });
+    );
 
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
     for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
