@@ -808,7 +808,7 @@ class VariantSelects extends HTMLElement {
   //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
   validCombo(inputValue,optionLevel,selectedOptions) {
       const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-      for (var i = 0, validCombo = false; i < productJson.length && validCombo = false; i++) {
+      for (var i = 0, validCombo = false; i < productJson.length && !validCombo; i++) {
         if(optionLevel == 1){
           if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == inputValue) validCombo = true;
         } else {
