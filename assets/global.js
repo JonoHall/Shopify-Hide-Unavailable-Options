@@ -793,7 +793,7 @@ class VariantSelects extends HTMLElement {
         });
     };
 
-    //if the default selected option happens to be removed with the function above, select the first available option instead
+    //if the default selected option is disabled with the function above, select the first available option instead
     for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
         if(fieldsets[optionLevel].querySelector('input:checked').disabled === true) {
             fieldsets[optionLevel].querySelector(`input:not(:disabled)`).checked = true;
