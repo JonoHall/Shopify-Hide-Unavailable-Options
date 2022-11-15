@@ -785,6 +785,7 @@ class VariantSelects extends HTMLElement {
               //label.style.display = "none";
               label.style.opacity = "0.5";
               label.style.borderStyle = "dashed";
+              label.style.textDecoration = "";
             } else {              
               //label.style.display = "";
               label.style.opacity = "1";
