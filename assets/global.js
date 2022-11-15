@@ -809,8 +809,12 @@ class VariantSelects extends HTMLElement {
   validCombo(inputValue,optionLevel,selectedOptions) {
       const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
       let validCombo = false;
-      for (var i = 0; i < productJson.length; i++) {
-        console.log(productJson[i].option1);
+      for (var i = 0, let validCombo = false; i < productJson.length, validCombo = false; i++) {
+        if(optionLevel == 1){
+          if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == inputValue) validCombo = true;
+        } else {
+          if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == selectedOptions[1] && productJson[i].option3 == inputValue) validCombo = true;
+        }
       }
       return validCombo;
   }
