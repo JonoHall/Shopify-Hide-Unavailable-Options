@@ -776,6 +776,7 @@ class VariantSelects extends HTMLElement {
         selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
     });
 
+    console.log(selectedOptions);
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
     for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
         const inputs = fieldsets[optionLevel].querySelectorAll('select');
