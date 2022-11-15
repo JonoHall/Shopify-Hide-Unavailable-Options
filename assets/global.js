@@ -811,12 +811,11 @@ class VariantSelects extends HTMLElement {
       let validCombo = false;
           productJson.map(function(v) {
             if(optionLevel == 1){
-              let validCombo = (v.option1 == selectedOptions[0] && v.option2 == inputValue) ? true : false;
+              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = true;
             } else {
-              let validCombo = (v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) ? true : false;
+              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = true;
             }
           });
-    console.log(validCombo);
       return validCombo;
   }
   /* *** Dynamic Selectors - 2/3 - End *** */
