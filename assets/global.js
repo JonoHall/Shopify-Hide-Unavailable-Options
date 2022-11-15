@@ -809,16 +809,20 @@ class VariantSelects extends HTMLElement {
   validCombo(inputValue,optionLevel,selectedOptions) {
       const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
       let validCombo = false;
-          validCombo = productJson.map(function(v) {
+      for (var i = 0; i < productJson.length; i++) {
+        console.log(i);
+      }
+      return validCombo;
+  }
+/*
+          productJson.map(function(v) {
             if(optionLevel == 1){
-              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) return true;
+              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = true;
             } else {
               if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = true;
             }
           });
-    console.log(validCombo);
-      return validCombo;
-  }
+  */
   /* *** Dynamic Selectors - 2/3 - End *** */
 
   onVariantChange() {
