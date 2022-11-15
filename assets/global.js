@@ -785,12 +785,10 @@ class VariantSelects extends HTMLElement {
               //label.style.display = "none";
               label.style.opacity = "0.3";
               label.style.borderStyle = "dashed";
-              label.style.textDecoration = "none";
             } else {              
               //label.style.display = "";
               label.style.opacity = "1";
               label.style.borderStyle = "solid";
-              label.style.textDecoration = (input.classList.contains("disabled")) ? "strike-through" : "none";
             }
         });
     };
