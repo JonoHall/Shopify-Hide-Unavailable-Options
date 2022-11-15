@@ -800,6 +800,7 @@ class VariantSelects extends HTMLElement {
         if(selectedOption.disabled === true) {
             //const firstValidLabel = fieldsets[optionLevel].querySelector(`label:not([style*="display: none"])`);
             //const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
+          console.log(fieldsets[optionLevel].querySelector(`input:not(:disabled)`));
             fieldsets[optionLevel].querySelector(`input:not(:disabled)`).checked = true;
 
             //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
