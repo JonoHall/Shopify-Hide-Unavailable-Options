@@ -795,12 +795,7 @@ class VariantSelects extends HTMLElement {
 
     //if the default selected option happens to be removed with the function above, select the first available option instead
     for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
-        const selectedOption = fieldsets[optionLevel].querySelector('input:checked');
-        //const selectedLabel = fieldsets[optionLevel].querySelector(`label[for="${selectedOption.id}"]`);
-        if(selectedOption.disabled === true) {
-            //const firstValidLabel = fieldsets[optionLevel].querySelector(`label:not([style*="display: none"])`);
-            //const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
-          console.log(fieldsets[optionLevel].querySelector(`input:not(:disabled)`));
+        if(fieldsets[optionLevel].querySelector('input:checked').disabled === true) {
             fieldsets[optionLevel].querySelector(`input:not(:disabled)`).checked = true;
 
             //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
