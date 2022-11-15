@@ -769,9 +769,8 @@ class VariantSelects extends HTMLElement {
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
 
     //build an array of currently selected options
-    const selectedOptions = [];
-    fieldsets.forEach((fieldset, i) => {
-        selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
+    const selectedOptions = fieldsets.map((fieldset) => {
+        return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
     });
 
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
@@ -780,7 +779,7 @@ class VariantSelects extends HTMLElement {
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
-            if(this.validCombo(input.value,optionLevel,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
+            label.style.display = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "none" : "";
         });
     };
 
