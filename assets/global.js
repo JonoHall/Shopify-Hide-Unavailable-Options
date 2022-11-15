@@ -781,7 +781,7 @@ class VariantSelects extends HTMLElement {
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
             //label.style.display = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "none" : "";
             label.style.opacity = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "0.25" : "1";
-            label.style.border = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "dashed" : "solid";
+            label.style.border.type = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "dashed" : "solid";
         });
     };
 
