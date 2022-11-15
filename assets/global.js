@@ -779,6 +779,7 @@ class VariantSelects extends HTMLElement {
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
+            console.log(this.validCombo(input.value,optionLevel,selectedOptions));
             input.disabled = this.validCombo(input.value,optionLevel,selectedOptions);
 
             if(input.disabled){
