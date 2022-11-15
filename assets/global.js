@@ -773,24 +773,30 @@ class VariantSelects extends HTMLElement {
         return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
     });
 
-    //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
+    //loop through the option sets starting from the 2nd set (i = 1) and disable any invalid options
     for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
         const inputs = fieldsets[optionLevel].querySelectorAll('input');
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
-            label.style.display = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? "none" : "";
+            input.disabled = (!this.validCombo(input.value,optionLevel,selectedOptions)) ? true : false;
+
+            if(input.disabled){
+              label.style.display = "none"; //Hide the option, or style it like below..
+              //label.style.opacity = "0.3";
+              //label.style.borderStyle = "dashed";
+            } else {              
+              label.style.display = ""; //Show the option, or style it like below..
+              //label.style.opacity = "1";
+              //label.style.borderStyle = "solid";
+            }
         });
     };
 
-    //if the default selected option happens to be removed with the function above, select the first available option instead
+    //if the default selected option is disabled with the function above, select the first available option instead
     for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
-        const selectedOption = fieldsets[optionLevel].querySelector('input:checked');
-        const selectedLabel = fieldsets[optionLevel].querySelector(`label[for="${selectedOption.id}"]`);
-        if(selectedLabel.style.display == "none") {
-            const firstValidLabel = fieldsets[optionLevel].querySelector(`label:not([style*="display: none"])`);
-            const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
-            firstValidInput.checked = true;
+        if(fieldsets[optionLevel].querySelector('input:checked').disabled === true) {
+            fieldsets[optionLevel].querySelector(`input:not(:disabled)`).checked = true;
 
             //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
             change = true;
@@ -802,21 +808,14 @@ class VariantSelects extends HTMLElement {
   //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
   validCombo(inputValue,optionLevel,selectedOptions) {
       const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-      let validCombo = new Boolean(false);
-  
-      if(optionLevel == 1) {
+      let validCombo = false;
           productJson.map(function(v) {
-              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
-                  validCombo = true;
-              }
+            if(optionLevel == 1){
+              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = true;
+            } else {
+              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = true;
+            }
           });
-      } else {
-          productJson.map(function(v) {
-              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
-                  validCombo = true;
-              }
-          });
-      }
       return validCombo;
   }
   /* *** Dynamic Selectors - 2/3 - End *** */
