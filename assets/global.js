@@ -766,7 +766,7 @@ class VariantSelects extends HTMLElement {
   /* *** Dynamic Selectors - 2/3 - Start *** */
   rebuildOptions() {
     //get the option sets (option1, option2 etc)
-    const fieldsets = document.querySelectorAll('fieldset.product-form__input');
+    const fieldsets = Array.from(this.querySelectorAll('fieldset'));
 
     //build an array of currently selected options
     const selectedOptions = [];
