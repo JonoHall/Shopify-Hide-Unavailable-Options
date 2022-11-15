@@ -828,9 +828,6 @@ class VariantSelects extends HTMLElement {
   /* *** Dynamic Selectors - 2/3 - End *** */
 
   onVariantChange() {
-    /* *** Dynamic Selectors - 3/3 - Start *** */
-    this.rebuildOptions();
-    /* *** Dynamic Selectors - 3/3 - End *** */
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
@@ -848,6 +845,9 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+    /* *** Dynamic Selectors - 3/3 - Start *** */
+    this.rebuildOptions();
+    /* *** Dynamic Selectors - 3/3 - End *** */
   }
 
   updateOptions() {
