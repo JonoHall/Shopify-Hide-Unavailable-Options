@@ -782,13 +782,13 @@ class VariantSelects extends HTMLElement {
             input.disabled = (this.validCombo(input.value,optionLevel,selectedOptions) == false) ? true : false;
 
             if(input.disabled){
-              label.style.display = "none";
-              //label.style.opacity = "0.5";
-              //label.style.borderStyle = "dashed";
+              //label.style.display = "none";
+              label.style.opacity = "0.5";
+              label.style.borderStyle = "dashed";
             } else {              
-              label.style.display = "";
-              //label.style.opacity = "1";
-              //label.style.borderStyle = "solid";
+              //label.style.display = "";
+              label.style.opacity = "1";
+              label.style.borderStyle = "solid";
             }
         });
     };
