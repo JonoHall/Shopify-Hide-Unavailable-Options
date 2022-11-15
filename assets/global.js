@@ -767,8 +767,6 @@ class VariantSelects extends HTMLElement {
   rebuildOptions() {
     //get the option sets (option1, option2 etc)
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
-    const options = Array.from(this.querySelectorAll('select'), (select) => select.value);
-    console.log(options);
 
     //build an array of currently selected options
     const selectedOptions = [];
@@ -776,15 +774,13 @@ class VariantSelects extends HTMLElement {
         selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
     });
 
-    console.log(selectedOptions);
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
     for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
-        const inputs = fieldsets[optionLevel].querySelectorAll('select');
-      console.log(inputs);
+        const inputs = fieldsets[optionLevel].querySelectorAll('input');
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
-            if(this.validCombo(input.value,optionLevel,selectedOptions) == false) input.hide();
+            if(this.validCombo(input.value,optionLevel,selectedOptions) == false) label.remove();
         });
     };
 
