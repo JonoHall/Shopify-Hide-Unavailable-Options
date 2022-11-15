@@ -779,7 +779,7 @@ class VariantSelects extends HTMLElement {
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
-            console.log(this.validCombo(input.value,optionLevel,selectedOptions));
+            console.log(this.validCombo(input.value,optionLevel,selectedOptions))
             input.disabled = this.validCombo(input.value,optionLevel,selectedOptions);
 
             if(input.disabled){
@@ -809,12 +809,12 @@ class VariantSelects extends HTMLElement {
   //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
   validCombo(inputValue,optionLevel,selectedOptions) {
       const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-      let validCombo = new Boolean(false);
+      let validCombo = false;
           productJson.map(function(v) {
             if(optionLevel == 1){
-              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = new Boolean(true);
+              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = true;
             } else {
-              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = new Boolean(true);
+              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = true;
             }
           });
       return validCombo;
