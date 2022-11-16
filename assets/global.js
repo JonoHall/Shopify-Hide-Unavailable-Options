@@ -756,11 +756,10 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    this.rebuildOptions();
-    this.addEventListener('change', this.rebuildOptions);
     this.addEventListener('change', this.onVariantChange);
 
     /* *** Dynamic Selectors - 1/3 - Start *** */
+    this.rebuildOptions();
     /* *** Dynamic Selectors - 1/3 - End *** */   
   }
 
@@ -821,6 +820,9 @@ class VariantSelects extends HTMLElement {
   /* *** Dynamic Selectors - 2/3 - End *** */
 
   onVariantChange() {
+    /* *** Dynamic Selectors - 3/3 - Start *** */
+    this.rebuildOptions();
+    /* *** Dynamic Selectors - 3/3 - End *** */
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
