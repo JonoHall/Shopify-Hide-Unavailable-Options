@@ -33,11 +33,11 @@ function rebuildOptions() {
           input.disabled = (!validCombo(input.value,optionLevel,selectedOptions)) ? true : false;
 
           if(input.disabled){
-            label.style.display = "none"; //Hide the option, or style it like below..
+            label.style.display = "none"; //Hide the option, or comment this line out and style it like below..
             //label.style.opacity = "0.3";
             //label.style.borderStyle = "dashed";
           } else {
-            label.style.display = ""; //Show the option, or style it like below..
+            label.style.display = ""; //Show the option, or comment this line out and style it like below..
             //label.style.opacity = "1";
             //label.style.borderStyle = "solid";
           }
