@@ -1,5 +1,19 @@
 this.rebuildOptions();
 
+//gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
+function validCombo(inputValue,optionLevel,selectedOptions) {
+    const variantRadios = document.querySelector('variant-radios');
+    const productJson = JSON.parse(variantRadios.querySelector('[type="application/json"]').textContent);
+    for (var i = 0, validCombo = false; i < productJson.length && !validCombo; i++) {
+      if(optionLevel == 1){
+        if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == inputValue) validCombo = true;
+      } else {
+        if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == selectedOptions[1] && productJson[i].option3 == inputValue) validCombo = true;
+      }
+    }
+    return validCombo;
+}
+
 function rebuildOptions() {
   const variantRadios = document.querySelector('variant-radios');
   //get the option sets (option1, option2 etc)
@@ -40,18 +54,4 @@ function rebuildOptions() {
           variantRadios.dispatchEvent(new Event('change', { bubbles: true }));
       }
   }
-}
-
-//gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
-function validCombo(inputValue,optionLevel,selectedOptions) {
-    const variantRadios = document.querySelector('variant-radios');
-    const productJson = JSON.parse(variantRadios.querySelector('[type="application/json"]').textContent);
-    for (var i = 0, validCombo = false; i < productJson.length && !validCombo; i++) {
-      if(optionLevel == 1){
-        if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == inputValue) validCombo = true;
-      } else {
-        if(productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == selectedOptions[1] && productJson[i].option3 == inputValue) validCombo = true;
-      }
-    }
-    return validCombo;
 }
