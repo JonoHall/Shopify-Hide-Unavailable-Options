@@ -3,6 +3,10 @@
 ## Enhancements
 * Dynamic RADIO Selectors - Hide or restyle variant buttons for options that do not exist.
 
+## Requirements
+1. Dawn 7.x
+2. Radio buttons or "Pills". This enhancement does not work with drop down boxes.. Yet. To change the drop down boxes to pills, customise the product page on your theme and change the "Variant picker" to "Pills".
+
 ## Installation
 1. Edit the code of your theme. In the "Assets" folder, create a new file called "dynamic-selectors" with extension option "js".
 2. Copy the contents of [this file](https://github.com/JonoHall/Dawn-Enhanced/blob/main/assets/dynamic-selectors.js) and paste it into the file you have just created.
