@@ -756,10 +756,10 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
+    this.addEventListener('change', this.rebuildOptions);
     this.addEventListener('change', this.onVariantChange);
 
     /* *** Dynamic Selectors - 1/3 - Start *** */
-    this.rebuildOptions();
     /* *** Dynamic Selectors - 1/3 - End *** */   
   }
 
@@ -785,7 +785,7 @@ class VariantSelects extends HTMLElement {
               label.style.display = "none"; //Hide the option, or style it like below..
               //label.style.opacity = "0.3";
               //label.style.borderStyle = "dashed";
-            } else {              
+            } else {
               label.style.display = ""; //Show the option, or style it like below..
               //label.style.opacity = "1";
               //label.style.borderStyle = "solid";
@@ -817,15 +817,6 @@ class VariantSelects extends HTMLElement {
       }
       return validCombo;
   }
-/*
-          productJson.map(function(v) {
-            if(optionLevel == 1){
-              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) validCombo = true;
-            } else {
-              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) validCombo = true;
-            }
-          });
-  */
   /* *** Dynamic Selectors - 2/3 - End *** */
 
   onVariantChange() {
