@@ -799,8 +799,8 @@ class VariantSelects extends HTMLElement {
             fieldsets[optionLevel].querySelector(`input:not(:disabled)`).checked = true;
 
             //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
+            this.dispatchEvent(new Event('change', { bubbles: true }))
             change = true;
-            this.onVariantChange();
         }
     }
   }
