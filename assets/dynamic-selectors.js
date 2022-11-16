@@ -4,6 +4,7 @@ function rebuildOptions() {
   const variantRadios = document.querySelector('variant-radios');
   //get the option sets (option1, option2 etc)
   const fieldsets = Array.from(variantRadios.querySelectorAll('fieldset'));
+  variantRadios.addEventListener('change', rebuildOptions());
   //build an array of currently selected options
   const selectedOptions = fieldsets.map((fieldset) => {
       return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
