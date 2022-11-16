@@ -39,8 +39,6 @@ function rebuildOptions() {
           variantRadios.dispatchEvent(new Event('change', { bubbles: true }));
       }
   }
-
-  variantRadios.addEventListener('change', rebuildOptions());
 }
 
 //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
