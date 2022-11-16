@@ -44,6 +44,7 @@ function rebuildOptions() {
 
 //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
 function validCombo(inputValue,optionLevel,selectedOptions) {
+    const variantRadios = document.querySelector('variant-radios');
     const productJson = JSON.parse(variantRadios.querySelector('[type="application/json"]').textContent);
     for (var i = 0, validCombo = false; i < productJson.length && !validCombo; i++) {
       if(optionLevel == 1){
