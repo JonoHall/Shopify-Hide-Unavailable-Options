@@ -800,7 +800,7 @@ class VariantSelects extends HTMLElement {
 
             //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
             change = true;
-            this.onVariantChange();
+            this.dispatchEvent(new Event('change', { bubbles: true }));
         }
     }
   }
