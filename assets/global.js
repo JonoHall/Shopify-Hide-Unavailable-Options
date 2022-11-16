@@ -757,75 +757,9 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-
-    /* *** Dynamic Selectors - 1/3 - Start *** */
-    this.rebuildOptions();
-    /* *** Dynamic Selectors - 1/3 - End *** */   
   }
-
-  /* *** Dynamic Selectors - 2/3 - Start *** */
-  rebuildOptions() {
-    //get the option sets (option1, option2 etc)
-    const fieldsets = document.querySelectorAll('fieldset.product-form__input');
-
-    //build an array of currently selected options
-    const selectedOptions = [];
-    fieldsets.forEach((fieldset, i) => {
-        selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
-    });
-
-    //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
-    for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
-        const inputs = fieldsets[optionLevel].querySelectorAll('input');
-        inputs.forEach(input => {
-            //get the label for the current input and hide it if it is not a valid combo option
-            const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
-            if(this.validCombo(input.value,optionLevel,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
-        });
-    };
-
-    //if the default selected option happens to be removed with the function above, select the first available option instead
-    for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
-        const selectedOption = fieldsets[optionLevel].querySelector('input:checked');
-        const selectedLabel = fieldsets[optionLevel].querySelector(`label[for="${selectedOption.id}"]`);
-        if(selectedLabel.style.display == "none") {
-            const firstValidLabel = fieldsets[optionLevel].querySelector(`label:not([style*="display: none"])`);
-            const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
-            firstValidInput.checked = true;
-
-            //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
-            change = true;
-            this.onVariantChange();
-        }
-    }
-  }
-
-  //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
-  validCombo(inputValue,optionLevel,selectedOptions) {
-      const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-      let validCombo = new Boolean(false);
-  
-      if(optionLevel == 1) {
-          productJson.map(function(v) {
-              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
-                  validCombo = true;
-              }
-          });
-      } else {
-          productJson.map(function(v) {
-              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
-                  validCombo = true;
-              }
-          });
-      }
-      return validCombo;
-  }
-  /* *** Dynamic Selectors - 2/3 - End *** */
 
   onVariantChange() {
-    /* *** Dynamic Selectors - 3/3 - Start *** */
-    this.rebuildOptions();
-    /* *** Dynamic Selectors - 3/3 - End *** */
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);

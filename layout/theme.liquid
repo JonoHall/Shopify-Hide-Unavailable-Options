@@ -30,6 +30,9 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    {% if request.page_type == 'product' %}
+      <script src="{{ 'dynamic-selectors.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
     {{ content_for_header }}
 
     {%- liquid
