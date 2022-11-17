@@ -1,7 +1,7 @@
 # Dawn Enhanced
 
 ## Enhancements
-* Dynamic Selectors - Hide or restyle variant buttons for options that do not exist.
+* Dynamic Selectors - Hide or restyle variant buttons/drop down options for variant combinations that do not exist.
 
 ## Requirements
 1. Dawn 7.x
