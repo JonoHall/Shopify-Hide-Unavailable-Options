@@ -14,7 +14,7 @@
 2. Copy the contents of [this file](https://github.com/JonoHall/Dawn-Enhanced/blob/main/assets/dynamic-selectors.js) and paste it into the file you have just created.
 3. In the "Layout" folder, edit the theme.liquid file. Find the line following line of code:
 ```
-"<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>"
+<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 ```
 BELOW this code, add the following:
 ```
