@@ -6,6 +6,11 @@
 ## Dynamic Selectors Example
 ![Dynamic Selectors Example](https://camo.githubusercontent.com/5e87d68a7cad63d3a61d7f1dc357d4685bd20304344f827d3604b10c27a39fe3/68747470733a2f2f692e696d6775722e636f6d2f776c44417554422e676966)
 
+## Live Demonstration
+The following website is using the main branch of this repository for its theme, the password is "dynamic":
+
+https://dynamic-selectors.myshopify.com/products/phone-case
+
 ## Requirements
 1. Dawn 7.x
 
