@@ -5,11 +5,12 @@
 
 ## Dynamic Selectors Example
 Enhanced Selector:
+
 ![Dynamic Selectors Example](https://camo.githubusercontent.com/5e87d68a7cad63d3a61d7f1dc357d4685bd20304344f827d3604b10c27a39fe3/68747470733a2f2f692e696d6775722e636f6d2f776c44417554422e676966)
 
 Compared to Shopify's confusing default selector (Samsung iPhone? Does unavailable mean it will exist in the future?):
-![Default Shopify Selector]
-(https://cdn.shopify.com/s/files/1/0680/3524/8401/files/show-unavailable.png?v=1668458648)
+
+![Default Shopify Selector](https://cdn.shopify.com/s/files/1/0680/3524/8401/files/default-selector_ef78e61a-8287-457e-8959-ca265ad75ade.png?v=1669855225)
 
 ## Live Demonstration
 The following website is using the main branch of this repository for its theme, the password is "dynamic":
