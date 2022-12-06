@@ -1,15 +1,7 @@
-let pickerType = (document.querySelector('variant-radios')) ? 'radios' : 'selects';
-let variantSelects = (pickerType == 'radios') ? document.querySelector('variant-radios') : document.querySelector('variant-selects'); 
-let fieldsets = (pickerType == 'radios') ? Array.from(variantSelects.querySelectorAll('fieldset')) : Array.from(variantSelects.querySelectorAll('.product-form__input--dropdown'));
-
 this.rebuildOptions();
 
 //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
-function validCombo(inputValue,optionLevel,productJson) {
-  const selectedOptions = fieldsets.map((fieldset) => {
-      return (pickerType == 'radios') ? Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value : Array.from(fieldset.querySelectorAll('select'), (select) => select.value);
-  });
-
+function validCombo(inputValue,optionLevel,productJson,selectedOptions) {
   for(var i = 0, validCombo = false; i < productJson.length && !validCombo; i++) {
     if(optionLevel == 1){
       validCombo = (productJson[i].option1 == selectedOptions[0] && productJson[i].option2 == inputValue) ? true : false;
@@ -21,7 +13,13 @@ function validCombo(inputValue,optionLevel,productJson) {
 }
 
 function rebuildOptions() {
+  const pickerType = (document.querySelector('variant-radios')) ? 'radios' : 'selects';
+  const variantSelects = (pickerType == 'radios') ? document.querySelector('variant-radios') : document.querySelector('variant-selects');
+  const fieldsets = (pickerType == 'radios') ? Array.from(variantSelects.querySelectorAll('fieldset')) : Array.from(variantSelects.querySelectorAll('.product-form__input--dropdown'));
   const productJson = JSON.parse(variantSelects.querySelector('[type="application/json"]').textContent);
+  const selectedOptions = fieldsets.map((fieldset) => {
+      return (pickerType == 'radios') ? Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value : Array.from(fieldset.querySelectorAll('select'), (select) => select.value);
+  });
   variantSelects.addEventListener('change', rebuildOptions);
   
   //loop through the option sets starting from the 2nd set and disable any invalid options
@@ -29,7 +27,7 @@ function rebuildOptions() {
     const inputs = (pickerType == 'radios') ? fieldsets[optionLevel].querySelectorAll('input') : fieldsets[optionLevel].querySelectorAll('option');
 
     inputs.forEach(input => {
-      input.disabled = (validCombo(input.value,optionLevel,productJson)) ? false : true;
+      input.disabled = (validCombo(input.value,optionLevel,productJson,selectedOptions)) ? false : true;
       if(pickerType == 'radios'){
         //get the label for the current input (this is what the user clicks, the "pill")
         const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
@@ -39,7 +37,7 @@ function rebuildOptions() {
         //label.style.borderStyle = (input.disabled) ? "dashed" : "solid";
         //label.style.textDecoration = (input.disabled) ? "none" : "";
       } else {
-        input.hidden = (validCombo(input.value,optionLevel,productJson)) ? false : true;
+        input.hidden = (validCombo(input.value,optionLevel,productJson,selectedOptions)) ? false : true;
       }
     });
   };
