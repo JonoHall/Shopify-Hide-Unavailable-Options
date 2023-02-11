@@ -42,7 +42,7 @@
           input.hidden = (validCombo(input.value,optionLevel)) ? false : true;
         }
       });
-    };
+    }
   
     //if the default selected option is disabled with the function above, select the first available option instead
     for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
