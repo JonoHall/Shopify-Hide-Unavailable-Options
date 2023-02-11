@@ -45,14 +45,14 @@
     }
   
     //if the default selected option is disabled with the function above, select the first available option instead
-    for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
+    for (var optionLevelIteration = 1, fieldsetsLength = fieldsets.length, change = false; optionLevelIteration < fieldsetsLength && !change; optionLevelIteration++) {
       if(pickerType == 'radios'){
-        if(fieldsets[optionLevel].querySelector('input:checked').disabled === true) {
-          change = (fieldsets[optionLevel].querySelector('input:not(:disabled)').checked = true);
+        if(fieldsets[optionLevelIteration].querySelector('input:checked').disabled === true) {
+          change = (fieldsets[optionLevelIteration].querySelector('input:not(:disabled)').checked = true);
         }
       } else {
-        if(fieldsets[optionLevel].querySelector('option:checked').disabled === true) {
-          change = (fieldsets[optionLevel].querySelector('option:not(:disabled)').selected = "selected");
+        if(fieldsets[optionLevelIteration].querySelector('option:checked').disabled === true) {
+          change = (fieldsets[optionLevelIteration].querySelector('option:not(:disabled)').selected = "selected");
         }
       }
       //if a new option has been selected, restart the whole process
