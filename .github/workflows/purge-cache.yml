@@ -8,5 +8,5 @@
         - uses: gacts/purge-jsdelivr-cache@v1
           with:
             url: |
-              https://cdn.jsdelivr.net/gh/jonohall/Shopify-Hide-Unavailable-Options@main/source.js
-              https://cdn.jsdelivr.net/gh/jonohall/Shopify-Hide-Unavailable-Options@main/source.min.js
+             https://cdn.jsdelivr.net/gh/jonohall/Shopify-Hide-Unavailable-Options@latest/source.js
+             https://cdn.jsdelivr.net/gh/jonohall/Shopify-Hide-Unavailable-Options@latest/source.min.js
