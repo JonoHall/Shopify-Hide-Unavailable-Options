@@ -3,7 +3,7 @@ const variantSelects = (pickerType == 'radios') ? document.querySelector('varian
 const fieldsets = (pickerType == 'radios') ? Array.from(variantSelects.querySelectorAll('fieldset')) : Array.from(variantSelects.querySelectorAll('.product-form__input--dropdown'));
 const productJson = JSON.parse(variantSelects.querySelector('[type="application/json"]').textContent);
 let selectedOptions = [];
-console.log('test');
+
 variantSelects.addEventListener('change', rebuildOptions);
 this.rebuildOptions();
 
