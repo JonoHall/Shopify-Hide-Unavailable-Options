@@ -27,7 +27,7 @@ Tested on Dawn 8.0 theme.
 </script>
 ```
 
-![liquid-block](https://user-images.githubusercontent.com/4916365/218238619-457a161e-20db-4f71-8d1e-b378840bff45.png)
+![hide-unavailable](https://user-images.githubusercontent.com/4916365/218292562-cf9c8235-5fc6-49ff-aa86-e4020284b23f.png)
 
 ## Say thanks!
 
