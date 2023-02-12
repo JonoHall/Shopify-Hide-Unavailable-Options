@@ -20,7 +20,7 @@ Tested on Dawn 8.0 theme.
 1. Customize your theme.
 2. Go to your product template page.
 3. Create a "Custom liquid" block in the "Product information" tree (ensure this is _under_ the variant picker block).
-4. Paste the contents of the [source.js](source.js) file in this repository into your recently created "Custom liquid" block within script tags. i.e.:
+4. Paste the contents of the [source.js](source.js) file into your recently created "Custom liquid" block **within javascript script tags**. i.e.:
 ```
 <script language="javascript" type="text/javascript">
   PASTE CONTENTS HERE
