@@ -1,0 +1,12 @@
+  name: Purge jsDelivr cache
+  run-name: ${{ github.actor }} is clearing cache in jsDelivr 🚀
+  uses: gacts/purge-jsdelivr-cache@v1.0.1
+  jobs:
+  purge-jsdelivr-cache:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: |
+            https://cdn.jsdelivr.net/gh/jonohall/Shopify-Hide-Unavailable-Options@main/source.js
+            https://cdn.jsdelivr.net/gh/jonohall/Shopify-Hide-Unavailable-Options@main/source.min.js
