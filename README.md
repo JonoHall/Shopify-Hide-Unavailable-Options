@@ -3,18 +3,16 @@
 * Hide unavailable options - Hide or restyle variant buttons/drop down options for variant combinations that do not exist.
 * Out of stock items will not be affected, this enhancement only affects _unavailable_ combinations. 
 
-## Example
-Enhanced Selector:
-
-![Dynamic Selectors Example](https://camo.githubusercontent.com/5e87d68a7cad63d3a61d7f1dc357d4685bd20304344f827d3604b10c27a39fe3/68747470733a2f2f692e696d6775722e636f6d2f776c44417554422e676966)
-
 ## Live Demonstration
 The following website is using the default Dawn theme, the password is "dynamic":
 
 https://dynamic-selectors.myshopify.com/products/phone-case
 
 ## Requirements
-Tested on Dawn 8.0 theme.
+Tested on Dawn 12.0 theme.
+
+## Known Bugs
+Screen seems to jump around a bit when you click on different options.
 
 ## Installation
 1. Customize your theme.
