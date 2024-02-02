@@ -1,6 +1,8 @@
-# Changelog
+## Requirements
+* Dawn 12/13.
 
-* Now working on Dawn 13.
+## Changelog
+* Small change to detect pills/selects in Dawn 13, kept compatibility with 12.
 
 # Hide Unavailable Combinations
 
@@ -11,9 +13,6 @@
 The following website is using the default Dawn theme, the password is "dynamic":
 
 https://dynamic-selectors.myshopify.com/products/phone-case
-
-## Requirements
-Tested on Dawn 13.0 theme.
 
 ## Known Bugs
 Screen seems to jump around a bit when you click on different options.
