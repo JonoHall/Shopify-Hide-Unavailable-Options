@@ -1,3 +1,7 @@
+# Changelog
+
+* Now working on Dawn 13.
+
 # Hide Unavailable Combinations
 
 * Hide unavailable options - Hide or restyle variant buttons/drop down options for variant combinations that do not exist.
@@ -9,7 +13,7 @@ The following website is using the default Dawn theme, the password is "dynamic"
 https://dynamic-selectors.myshopify.com/products/phone-case
 
 ## Requirements
-Tested on Dawn 12.0 theme.
+Tested on Dawn 13.0 theme.
 
 ## Known Bugs
 Screen seems to jump around a bit when you click on different options.
