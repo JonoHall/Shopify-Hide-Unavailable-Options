@@ -40,4 +40,6 @@ But if would like to give a small donation, click the button below to say thanks
 
 ## Hall of Shame! (non-credited usage)
 
-websensepro.com has stolen this code and using it uncredited on their blog and YouTube channel. Shame.
+I set up this repository to help those with similar issues as I was experiencing. With no prior Javascript background I spent weeks trying to figure this out. Such a gut punch to see my work copy and pasted on a business website uncredited. Don't be like that.
+
+* websensepro.com has stolen this code and using it uncredited on their blog and YouTube (Rs6o1HdsKF8) channel. I've reached out asking them to credit this repository, but they have not responded. Shame.
