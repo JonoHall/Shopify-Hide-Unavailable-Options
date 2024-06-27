@@ -37,3 +37,7 @@ I've spent countless hours working on this solution, I could have made it into a
 But if would like to give a small donation, click the button below to say thanks!
 
 <a href="https://www.buymeacoffee.com/jonohallnz"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jonohallnz&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+## Hall of Shame! (non-credited usage)
+
+websensepro.com has stolen this code and using it uncredited on their blog and YouTube channel. Shame.
