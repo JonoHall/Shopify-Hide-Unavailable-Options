@@ -1,8 +1,5 @@
 ## Requirements
-* Dawn 12/13.
-
-## Changelog
-* Small change to detect pills/selects in Dawn 13, kept compatibility with 12.
+* Dawn 15 (not compatible with previous versions).
 
 # Hide Unavailable Combinations
 
